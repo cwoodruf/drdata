@@ -1,0 +1,78 @@
+/*
+---------------------------------------------------------------
+Author Cal Woodruff cwoodruf\@gmail.com
+Licensed under the Perl Artistic License version 2.0
+http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt
+---------------------------------------------------------------
+*/
+* {
+	font-family: calibri,arial,sans-serif;
+}
+
+.small {
+	font-size: 8pt;
+}
+
+a, a:visited {
+	color: brown;
+}
+
+input, textarea {
+	font-family: calibri,arial,sans-serif;
+	font-size: medium;
+}
+
+table {
+	background-color: lightgray;
+	padding: 5px;
+	border: 1px solid black;
+	width: 638px;
+}
+
+table.nowidth {
+	width: auto;
+}
+
+table.nobgcolor {
+	background-color: white;
+	border: none;
+	width: 0; /* for IE */
+	width: inherit;
+}
+
+h1, h2, h3, h4 {
+	color: darkgreen;
+}
+
+.comment {
+	font-weight: bold;
+	font-style: italic;
+	font-size: smaller;
+	background-color: cornsilk;
+	margin-top: 2px;
+	text-align: center;
+}
+
+.editlink {
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.b {
+	font-weight: bold;
+}
+
+.i {
+	font-style: italic;
+}
+
+.inactive {
+	text-decoration: line-through; 
+}
+
+.active {
+}
+
+.hidden {
+	visibility: hidden;
+}

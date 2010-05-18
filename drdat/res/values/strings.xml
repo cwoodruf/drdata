@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Distributed Real-time Data Acquisition Toolkit</string>
+    <string name="DrdatCLActionsTitle">View Tasks - update or complete your tasks.</string>
+    <string name="Communications">DRDAT</string>
+    
+    <string name="SmiUrl">http://cmpt276.ath.cx:8002/cal/testsmi/</string>
+    <string name="DataUrl">content://com.google.android.drdat.drdatdataprovider</string>
+    <string name="Help">User guide</string>
+    <string name="Settings">Settings</string>
+    <string name="SettingsTitle">Edit DRDAT settings</string>
+    <string name="SettingsSmiUrlLabel">SMI Url</string>
+    <string name="SettingsSaveButton">Change</string>
+    <string name="SettingsRestoreButton">Restore Defaults</string>
+    <string name="SettingsSaved">Saved settings</string>
+    <string name="SettingsRestored">Restored settings to defaults</string>
+    
+    <string name="UpdateLoginFile">login_cache</string>
+    <string name="UpdateLoginTitle">Login to View Tasks</string>
+    <string name="UpdateLoginButton">@string/UpdateSchedule</string>
+    <string name="UpdateLoginEmail">Email</string>
+    <string name="UpdateLoginPassword">Password</string>
+    
+    <string name="Notify">Start Task Notifications</string>
+    <string name="NotifyStop">Stop Task Notifications</string>
+    
+    <string name="UpdateSchedule">View Tasks</string>
+    <string name="UpdateFailed">Failed to update tasks!</string>
+    <string name="ShowSchedule">Show Schedule</string>
+    <string name="DeleteTasks">Delete tasks and logins</string>
+    <string name="TasksDeleted">All tasks and logins deleted</string>
+    
+    <string name="UploadData">Upload Data</string>
+    <string name="StartedUpload">Upload started</string>
+    <string name="ClearSentData">Delete uploaded data</string>
+    <string name="ReallyDelete">Really delete? (No undo)</string>
+    <string name="NumDeleted">Data records deleted </string>
+
+    <string name="AlarmStart">Task Notifier Started</string>
+    <string name="AlarmStop">Task Notifier Stopped</string>
+    <string name="NoAlarms">Notifier not started!</string>
+    <string name="AlarmFailed">ERROR: could not start notifier!</string>
+    
+    <string-array name="DrdatCLActions">
+    <item>@string/UpdateSchedule</item>
+    <item>@string/Notify</item>
+    <item>@string/NotifyStop</item>
+    <item>@string/UploadData</item>
+    <item>@string/Help</item>
+    <item>@string/Settings</item>
+    <item>@string/ClearSentData</item>
+    <item>@string/DeleteTasks</item>
+    </string-array>
+    
+    <string name="intro">DRDAT: Please read the following instructions carefully. Click "save data" to save your data.</string>
+    <string name="instructions">DRDAT: instructions</string>
+    <string name="listtasks">DRDAT: pick a task</string>
+    <string name="part_login">DRDAT Login</string>
+    <string name="PartLoginFile">login_cache</string>
+    <string name="PartLoginTitle">DRDAT Login</string>
+    <string name="PartLoginButton">Log In</string>
+    <string name="PartLoginEmail">Email</string>
+    <string name="PartLoginPassword">Password</string>
+    <string name="TaskListTitle">DRDAT: Select a Task</string>
+    <string name="TaskUrl">content://com.google.android.drdat.drdattask</string>
+    <string name="TaskListUrl">content://com.google.android.drdat.drdattasklist</string>
+    <string name="LoginUrl">content://com.google.android.drdat.drdatlogin</string>
+    
+    
+</resources>

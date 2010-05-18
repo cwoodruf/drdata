@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.google.android.drdat" android:versionCode="1"
+	android:versionName="1.0">
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:label="@string/Communications" android:name=".DrdatCommunications">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/UpdateSchedule" android:name=".DrdatUpdateSchedule">
+            <intent-filter>
+                <action android:name="com.google.android.drdat.UPDATE_SCHEDULE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".PartLogin" android:label="@string/part_login">
+            <intent-filter>
+                <action android:name="com.google.android.drdat.PARTLOGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="drdat" />
+            </intent-filter>
+       </activity>
+        <activity android:label="@string/ShowSchedule" android:name=".DrdatShowSchedule">
+            <intent-filter>
+                <action android:name="com.google.android.drdat.SHOW_SCHEDULE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/Help" android:name=".DrdatHelp">
+            <intent-filter>
+                <action android:name="com.google.android.drdat.HELP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/Settings" android:name="DrdatSettings">
+            <intent-filter>
+                <action android:name="com.google.android.drdat.SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DrdatForms" android:label="@string/instructions">
+             <intent-filter>
+                 <action android:name="com.google.android.drdat.INSTRUCTIONS" />
+                 <category android:name="android.intent.category.DEFAULT" />
+             </intent-filter>
+        </activity>
+
+		<provider android:name=".DrdatTasklist" android:authorities="com.google.android.drdat.drdattasklist"/>
+		<provider android:name=".DrdatTask" android:authorities="com.google.android.drdat.drdattask"/>
+		<provider android:name=".DrdatLogin" android:authorities="com.google.android.drdat.drdatlogin"/>
+	    <receiver android:name=".AlarmRefresh">
+            <intent-filter>
+                <action android:name="com.google.android.drdat.ALARM_REFRESH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+	    </receiver>
+        <receiver android:name=".BootRestart">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".DrdatData2Smi" >
+	        <intent-filter>
+	            <action android:name="com.google.android.drdat.UPLOAD_DATA" />
+	        </intent-filter>
+        </service>
+        <receiver android:name=".TaskBroadcast">
+            <intent-filter>
+                <action android:name="com.google.android.drdat.TASK_BROADCAST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <provider android:name=".DrdatDataProvider" 
+            android:authorities="com.google.android.drdat.drdatdataprovider" />
+
+    </application>
+	<uses-sdk android:minSdkVersion="7" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+</manifest> 

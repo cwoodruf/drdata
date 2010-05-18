@@ -1,0 +1,170 @@
+-- MySQL dump 10.9
+--
+-- Host: localhost    Database: drdat_cal
+-- ------------------------------------------------------
+-- Server version	4.1.22
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `drdat_data`
+--
+
+DROP TABLE IF EXISTS `drdat_data`;
+CREATE TABLE `drdat_data` (
+  `study_id` int(11) NOT NULL default '0',
+  `task_id` int(11) NOT NULL default '0',
+  `email` varchar(64) NOT NULL default '',
+  `password` varchar(64) NOT NULL default '',
+  `query` text NOT NULL,
+  `ts` datetime NOT NULL default '0000-00-00 00:00:00',
+  `sent` datetime default NULL,
+  PRIMARY KEY  (`study_id`,`task_id`,`email`,`password`,`query`(255),`ts`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `enrollment`
+--
+
+DROP TABLE IF EXISTS `enrollment`;
+CREATE TABLE `enrollment` (
+  `participant_id` int(11) NOT NULL default '0',
+  `study_id` int(11) NOT NULL default '0',
+  `enrolled` datetime default NULL,
+  `active` int(11) default '1',
+  PRIMARY KEY  (`participant_id`,`study_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `form`
+--
+
+DROP TABLE IF EXISTS `form`;
+CREATE TABLE `form` (
+  `form_id` int(11) NOT NULL default '0',
+  `task_id` int(11) NOT NULL default '0',
+  `taskitem_id` int(11) NOT NULL default '0',
+  `form_ord` int(11) default NULL,
+  PRIMARY KEY  (`form_id`,`task_id`,`taskitem_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `participant`
+--
+
+DROP TABLE IF EXISTS `participant`;
+CREATE TABLE `participant` (
+  `participant_id` int(11) NOT NULL auto_increment,
+  `firstname` varchar(64) default NULL,
+  `lastname` varchar(64) default NULL,
+  `phone` varchar(32) default NULL,
+  `email` varchar(128) default NULL,
+  `password` varchar(64) default NULL,
+  PRIMARY KEY  (`participant_id`),
+  UNIQUE KEY `participant_email_password_idx` (`email`,`password`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `research`
+--
+
+DROP TABLE IF EXISTS `research`;
+CREATE TABLE `research` (
+  `researcher_id` int(11) NOT NULL default '0',
+  `study_id` int(11) NOT NULL default '0',
+  `visible` int(11) default '1',
+  PRIMARY KEY  (`researcher_id`,`study_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `researcher`
+--
+
+DROP TABLE IF EXISTS `researcher`;
+CREATE TABLE `researcher` (
+  `researcher_id` int(11) NOT NULL auto_increment,
+  `lastname` varchar(64) default NULL,
+  `firstname` varchar(64) default NULL,
+  `position` varchar(128) default NULL,
+  `institution` varchar(128) default NULL,
+  `phone` varchar(32) default NULL,
+  `email` varchar(128) default NULL,
+  `password` varchar(64) default NULL,
+  PRIMARY KEY  (`researcher_id`),
+  UNIQUE KEY `researcher_email_idx` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `schedule`
+--
+
+DROP TABLE IF EXISTS `schedule`;
+CREATE TABLE `schedule` (
+  `task_id` int(11) NOT NULL default '0',
+  `study_id` int(11) NOT NULL default '0',
+  `startdate` date default NULL,
+  `enddate` date default NULL,
+  `timesofday` varchar(255) default NULL,
+  `last_modified` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `active` int(11) default '1',
+  `daysofweek` varchar(64) default NULL,
+  PRIMARY KEY  (`task_id`,`study_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `study`
+--
+
+DROP TABLE IF EXISTS `study`;
+CREATE TABLE `study` (
+  `study_id` int(11) NOT NULL auto_increment,
+  `study_title` varchar(128) default NULL,
+  `description` text,
+  `startdate` date default NULL,
+  `enddate` date default NULL,
+  PRIMARY KEY  (`study_id`),
+  UNIQUE KEY `study_study_title_idx` (`study_title`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `task`
+--
+
+DROP TABLE IF EXISTS `task`;
+CREATE TABLE `task` (
+  `task_id` int(11) NOT NULL auto_increment,
+  `task_title` varchar(128) NOT NULL default '',
+  `task_notes` text,
+  `last_modified` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `formtext` text,
+  `forms_locked` int(11) default '0',
+  PRIMARY KEY  (`task_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `taskitem`
+--
+
+DROP TABLE IF EXISTS `taskitem`;
+CREATE TABLE `taskitem` (
+  `taskitem_id` int(11) NOT NULL auto_increment,
+  `instruction` varchar(255) default NULL,
+  `format` text,
+  PRIMARY KEY  (`taskitem_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
