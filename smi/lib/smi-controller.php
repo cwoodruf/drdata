@@ -330,7 +330,6 @@ class SMIAction extends DoIt {
 			$t->upd($new_task_id, array('task_title' => $title, 'forms_locked' => 0));
 
 			$sched['task_id'] = $new_task_id;
-			$sched['has_data'] = 0;
 			$s->ins($sched);
 
 			View::assign('study_id',$study_id);

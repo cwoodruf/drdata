@@ -66,10 +66,6 @@ class Data extends Entity {
 		try {
 			$this->ins($keys);
 			$task->upd($keys['task_id'], array('forms_locked' => 1));
-			$sched->upd(
-				array('study_id' => $keys['study_id'], 'task_id' => $keys['task_id']),
-				array('has_data' => 1)
-			);
 			return "OK ".$keys['sent'];
 
 		} catch (Exception $e) {
