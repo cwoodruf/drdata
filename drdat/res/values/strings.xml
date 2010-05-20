@@ -4,7 +4,7 @@
     <string name="DrdatCLActionsTitle">View Tasks - update or complete your tasks.</string>
     <string name="Communications">DRDAT</string>
     
-    <string name="SmiUrl">http://cmpt276.ath.cx:8002/cal/testsmi/</string>
+    <string name="SmiUrl">http://192.168.1.101/smi/</string>
     <string name="DataUrl">content://com.google.android.drdat.drdatdataprovider</string>
     <string name="Help">User guide</string>
     <string name="Settings">Settings</string>
