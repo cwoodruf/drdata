@@ -27,7 +27,6 @@ public class AlarmRefresh extends BroadcastReceiver {
 	private static PendingIntent dailyOp;
 	private static AlarmState state = AlarmState.UNSET;
 	public static long SIXTYSECS = 60;
-	// reduced for testing purposes
 	public static long ONEDAY = 86400000; 
 	public static long ONEHOUR = 3600000;
 	public static long ONEMINUTE = 60000;
