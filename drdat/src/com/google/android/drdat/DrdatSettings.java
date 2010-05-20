@@ -24,7 +24,7 @@ public class DrdatSettings extends Activity {
 	private EditText ed;
 	
 	/** Called when the activity is first created. */
-	@Override
+	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.settings);
@@ -36,7 +36,7 @@ public class DrdatSettings extends Activity {
 	    restore = (Button) findViewById(R.id.restore_settings);
 	    
 	    save.setOnClickListener(new OnClickListener() {
-			@Override
+			
 			public void onClick(View v) {
 				Smi.set(me, ed.getText().toString());
 				ed.setText(Smi.str(me));
@@ -44,7 +44,7 @@ public class DrdatSettings extends Activity {
 			}
 	    });
 	    restore.setOnClickListener(new OnClickListener() {
-			@Override
+			
 			public void onClick(View v) {
 				Smi.reset(me);
 				ed.setText(Smi.str(me));

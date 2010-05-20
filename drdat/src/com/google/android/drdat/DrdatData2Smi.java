@@ -41,7 +41,7 @@ public class DrdatData2Smi extends Service {
 	 * create a thread and try and send all unsent data to the smi
 	 * @see android.app.Service#onBind(android.content.Intent)
 	 */
-	@Override
+	
 	public void onCreate() {
 		super.onCreate();
 		me = this;
@@ -52,12 +52,12 @@ public class DrdatData2Smi extends Service {
 		Log.d(LOG_TAG,"DrdatData2Smi.onCreate: started uploading (status "+status+") thread "+uploading);
 	}
 	
-	@Override
+	
 	public void onDestroy() {
 		super.onDestroy();
 	}
 	
-	@Override
+	
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
@@ -69,7 +69,7 @@ public class DrdatData2Smi extends Service {
 	}
 	
 	private class UploadThread implements Runnable {
-		@Override
+		
 		/**
 		 * do the upload and then do a toast notification 
 		 * to the end user that you have uploaded something

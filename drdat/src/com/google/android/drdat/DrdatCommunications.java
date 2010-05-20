@@ -29,7 +29,7 @@ public class DrdatCommunications extends Activity {
 	private TextView t;
 	private String LOG_TAG = "DRDAT COMMS";
 	
-    @Override
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -59,7 +59,7 @@ public class DrdatCommunications extends Activity {
         l.setTextFilterEnabled(true);
         
         l.setOnItemClickListener(new OnItemClickListener() {
-        	@Override
+        	
         	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         		// When clicked, show a toast with the TextView text
         		String clicked = ((TextView) view).getText().toString();
@@ -80,7 +80,7 @@ public class DrdatCommunications extends Activity {
     				.setTitle(me.getString(R.string.DeleteTasks))
     				.setMessage(R.string.ReallyDelete)
     				.setPositiveButton("Delete", new OnClickListener() {
-						@Override
+						
 						public void onClick(DialogInterface dialog, int which) {
 							
 							// WARNING: this will permanently delete all task and login data!!!
@@ -107,7 +107,7 @@ public class DrdatCommunications extends Activity {
 						}
     				})
     				.setNegativeButton("Cancel", new OnClickListener() {
-						@Override
+						
 						public void onClick(DialogInterface dialog, int which) {
 							dialog.cancel();
 						}
@@ -142,7 +142,7 @@ public class DrdatCommunications extends Activity {
         				.setTitle(me.getString(R.string.ClearSentData))
         				.setMessage(R.string.ReallyDelete)
         				.setPositiveButton("Delete", new OnClickListener() {
-							@Override
+							
 							public void onClick(DialogInterface dialog, int which) {
 		        				int deleted = DrdatData2Smi.clearUploaded(me);
 		            			Toast.makeText(me, me.getString(R.string.NumDeleted)+" = "+deleted, Toast.LENGTH_LONG).show();
@@ -151,7 +151,7 @@ public class DrdatCommunications extends Activity {
 							}
         				})
         				.setNegativeButton("Cancel", new OnClickListener() {
-							@Override
+							
 							public void onClick(DialogInterface dialog, int which) {
 								dialog.cancel();
 							}

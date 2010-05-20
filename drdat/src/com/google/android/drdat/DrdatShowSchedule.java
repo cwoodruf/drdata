@@ -28,7 +28,7 @@ public class DrdatShowSchedule extends Activity {
 	private final String LOG_TAG = "DRDAT SHOW SCHEDULE";
 	
 	/** Called when the activity is first created. */
-	@Override
+	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    this.setContentView(R.layout.schedule);
@@ -55,7 +55,7 @@ public class DrdatShowSchedule extends Activity {
         lv.setAdapter(new ArrayAdapter<Task>(this, R.layout.schedule, R.id.DrdatCLScheduleListItems, tasks));
         
         lv.setOnItemClickListener(new OnItemClickListener() {
-			@Override
+			
 			public void onItemClick(AdapterView<?> av, View v, int position, long id) {
 				Intent i = new Intent();
 				i.setClassName("com.google.android.drdat", "com.google.android.drdat.DrdatForms");
