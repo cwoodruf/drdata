@@ -65,11 +65,14 @@ class Data extends Entity {
 		$sched = new Schedule;
 		try {
 			$this->ins($keys);
+file_put_contents("/tmp/insert_drdat_data.mysql",$this->query);
 			$task->upd($keys['task_id'], array('forms_locked' => 1));
+file_put_contents("/tmp/update_drdat_data.mysql",$this->query);
 			return "OK ".$keys['sent'];
 
 		} catch (Exception $e) {
 			$this->err($e);
+file_put_contents("/tmp/error_drdat_data.mysql",$this->query);
 			return false;
 		}
 	}
@@ -94,7 +97,7 @@ class Data extends Entity {
 
 		Check::$emptyok = true;
 
-		$badchars = '#([\n\r,]+)#';
+		$badchars = '#([\\n\\r,])#';
 		$replace = create_function(
 			'$m', // input = matches from regexp above
 			'return $m[1] == "," ? "&comma;": "<br>";' // fix by formatting as html
@@ -118,7 +121,7 @@ class Data extends Entity {
 				}
 				$row['A'] = $r['ts'];
 				$row['B'] = $r['email'];
-				for ($count=0; $count<count($instructions); $count++) {
+				for ($count=0; $count<count($instructions)+2; $count++) {
 					$entry = $entered[$count];
 					if (is_array($entry)) {
 						$entry = implode("|",$entry);
@@ -411,11 +414,7 @@ class Task extends Entity {
 
 	private function addinstruction(&$inum, &$instruction, &$widget, &$items, $style='xml') {
 		if ($instruction !== null) {
-			if ($widget == 'text' or 
-				(preg_match('#dropdown|checkbox#',$widget) and count($items) > 0)) {
-				$inum++;
-			}
-
+			if ($widget) $inum++;
 			$format = '';
 			if ($style == 'html') 
 				$htmlstart = "<input type=\"hidden\" name=\"instruction[$inum]\" ".
@@ -445,8 +444,9 @@ class Task extends Entity {
 							$format = $htmlstart;
 							foreach ($items as $cnum => $item) {
 								$format .= "<input type=checkbox ".
-									"name=\"data[$inum][$cnum]\" ".
+									"name=\"data[$inum]\" ".
 									"value=\"$item\"> $item\n";
+								$inum++;
 							}
 							$format .= $htmlend;
 						break;

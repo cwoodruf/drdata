@@ -740,7 +740,7 @@ class SMIAction extends DoIt {
 				throw new Exception(Check::err());
 
 			$p = new Participant;
-			if ($p->upd($part_id,array('password' => md5($password))) == false)
+			if ($p->upd($part_id,array('password' => md5("$password"))) == false)
 				throw new Exception($p->err());
 
 			View::assign('study_id',$study_id);
@@ -847,4 +847,4 @@ class SMIAction extends DoIt {
 		}
 	}
 }
-	
+

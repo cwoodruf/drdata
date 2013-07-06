@@ -12,7 +12,7 @@ if (__SMI__) die("no direct access.");
 
 # from a separate svn library: http://code.google.com/p/dbabstracter4php
 # checking functions used by model and controller
-require_once('.db/check.php');
+require_once('.db-lib/check.php');
 
 # db access and business logic
 require_once('lib/model.php');

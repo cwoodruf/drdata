@@ -15,11 +15,11 @@ function smarty_outputfilter_extract($output,&$smarty) {
 	$extracted = var_export($texts,true);
 	
 	file_put_contents(
-		"view/templates/{$smarty->resource_name}.texts", 
+		"/tmp/{$smarty->resource_name}.texts", 
 		"<?php\n\$texts = ".var_export($texts,true)
 	);
 	file_put_contents(
-		"view/templates/{$smarty->resource_name}.shell", 
+		"/tmp/{$smarty->resource_name}.shell", 
 		$shell
 	);
 

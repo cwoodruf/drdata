@@ -12,6 +12,9 @@ http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt
 
 {else}
 
+<a href="drdat.apk" class="editlink">Download the android app</a>
+<br>
+<br>
 <a href="javascript:void(0);" 
    onClick="window.open('tutorial.php','tutorial','toolbars=no,scrollbars=yes,menubar=no,width=700,height=700'); return false;" 
    class="editlink">Tutorial</a>

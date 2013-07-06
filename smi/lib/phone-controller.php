@@ -23,6 +23,7 @@ class PhoneAction extends DoIt {
 			if (preg_match('/[\w\-\.]+@[\w\-\.]+/', $_REQUEST['email']) == false)
 				$this->err .= "bad email username. ";
 			if ($this->err) throw new Exception($this->err);
+file_put_contents("/tmp/process.txt",$this->err);
 			$print = parent::process($a);
 			return $print;
 		} catch (Exception $e) {
@@ -69,6 +70,7 @@ class PhoneAction extends DoIt {
 			'instruction' => $_REQUEST['instruction']
 		);
 		$keys['query'] = serialize($query);
+file_put_contents("/tmp/sentData.txt",serialize($keys)."\n".$query);
 
 		$d = new Data;
 		return $d->insert_drdat_data($keys);

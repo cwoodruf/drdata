@@ -17,6 +17,7 @@ define('VIEW_MINROWS', 2);
 # see http://smarty.net/ for more information
 require_once('.smarty/Smarty.class.php');
 $smarty = new Smarty;
+$smarty->error_reporting = E_ALL & ~E_NOTICE;
 $smarty->template_dir = getcwd().'/view/templates';
 $smarty->compile_dir = getcwd().'/view/templates_c';
 $smarty->plugins_dir[] = getcwd().'/view/plugins';

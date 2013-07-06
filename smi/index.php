@@ -10,6 +10,8 @@ http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt
 /**
  * main entry point for all request processing
  */
+error_reporting(E_ALL & ~E_NOTICE);
+ini_set('display_errors',true);
 
 # if __SMI__ is not false then its not defined - php defines unknown strings to true (ps: gah!)
 define('__SMI__',false);
