@@ -25,7 +25,7 @@ View::assign('user',$user);
 View::assign('action',$action->get());
 
 $contenttype = 'text-html';
-if (!$action->unblocked() and !$user->valid()) {
+if (false and !$action->unblocked() and !$user->valid()) {
 	View::head();
 	View::display('login.tpl');
 	exit();
