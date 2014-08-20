@@ -78,10 +78,11 @@
             android:authorities="com.google.android.drdat.drdatdataprovider" />
 
     </application>
-	<uses-sdk android:minSdkVersion="7" />
+	
 
 	<uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     
+	<uses-sdk android:minSdkVersion="7"></uses-sdk>
 </manifest> 
