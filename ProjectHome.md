@@ -1,0 +1,1 @@
+This toolkit uses a web server to deploy scheduled tasks (data entry forms essentially) to mobile devices running android. There are many applications for this technology including self-reporting studies in medicine and the social sciences.
